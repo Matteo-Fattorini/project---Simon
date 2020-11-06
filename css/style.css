@@ -124,3 +124,8 @@ body {
     border-radius: 20px;;
     padding: 20px;
 }
+
+#main-btn:hover {
+    background-color: red;
+
+}

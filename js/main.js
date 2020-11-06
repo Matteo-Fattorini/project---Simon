@@ -35,7 +35,7 @@ $(document).ready(function () {
     }
 
     for (var i = 0; i < 100; i++) {
-      if (altSequence[i] === altSequence[i + 1]) {
+      if ((altSequence[i] === altSequence[i + 1]) || (altSequence[i] === altSequence[i + 1])) {
         if (altSequence[i] === 8) {
           altSequence[i] = 7;
         } else {
@@ -46,12 +46,14 @@ $(document).ready(function () {
   });
 
   level = 1;
-
+  clicked = false;
   // click sul pulsante next round. Va al round successivo
   $("#main-btn").click(function () {
-    if (game) {
+    
+    if (game && !clicked) {
       userPicks = [];
       colorTry(level);
+      clicked = true;
       console.log(roundss);
     }
   });
@@ -75,6 +77,7 @@ $(document).ready(function () {
           }
         }
         if (toggle) {
+          clicked = false;
           ++level;
           $("#round-level").html(level);
         } else {
